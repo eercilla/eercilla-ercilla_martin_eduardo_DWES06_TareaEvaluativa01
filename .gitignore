@@ -1,0 +1,8 @@
+# Laravel
+/DWES05/vendor/
+/DWES05/storage/
+/DWES05/node_modules/
+
+# Spring Boot
+/SpringBootProyect/target/
+/SpringBootProyect/out/
