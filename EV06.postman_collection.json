@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "8e398f98-035b-41da-b975-5e401c01caba",
+		"name": "EV06",
+		"description": "En este archivo de ejemplo encontrarás las consultas HTTP básicas necesarias para completar la Tarea Evaluativa 2 de la Unidad Didáctica 3 de DWES. El ejemplo está basado en una aplicación de una **base de datos sobre videojuegos**, en la que podrás realizar operaciones CRUD sobre los juegos, compañías o sistemas de la BBDD.\n\n🔍 **¿Qué puedes hacer?**  \nCon esta colección, podrás ejecutar las operaciones básicas de un sistema REST para gestionar juegos/compañías/sistemas en el sistema. Entre las operaciones disponibles, encontrarás:\n\n1. **Recuperar la información de todos/as los/as juegos/compañías/sistemas**: Verás la lista completa de los elementos en el sistema.\n    \n2. **Consultar un/a juego/compañía/sistema** **específico por su ID**: Obtendrás los detalles del elemento concreto.\n    \n3. **Insertar un/a nuevo juego/compañía/sistema**s: Podrás añadir una nuevo elemento.\n    \n4. **Modificar un/a juego/compañía/sistemaexistente**: Actualiza el contenido o título de un elemento.\n    \n5. **Eliminar un/a juego/compañía/sistema**: Elimina un elemento de forma definitiva.\n    \n\n🌟 **Estructura del Ejemplo**  \nCada operación de esta plantilla cuenta con instrucciones detalladas y ejemplos de cómo enviar y recibir los datos en formato JSON. Solo necesitas hacer clic en **Send** en cada solicitud para ejecutarla y ver los resultados en tiempo real.\n\n💡 **Consejo**: Usa el archivo para familiarizarte con las consultas que deberás implementar y personalizar en tu propio servicio en la tarea evaluativa. Cada solicitud incluye una descripción paso a paso para ayudarte a entender cómo funcionan las operaciones CRUD en una API RESTful.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39852951"
+	},
+	"item": [
+		{
+			"name": "1 - Get usuarios (NO BD)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuario"
+					]
+				},
+				"description": "Esta solicitud GET obtiene una lista de todos las usuarios disponibles en el sistema.\n\n**Caso de uso:** Al pulsar enviar debería devolver la información de todos los usuarios disponibles"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Get usuarios persistencia (BD)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/usuarioBD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuarioBD"
+					]
+				},
+				"description": "Esta solicitud GET obtiene una lista de todos las usuarios disponibles en el sistema.\n\n**Caso de uso:** Al pulsar enviar debería devolver la información de todos los usuarios disponibles"
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Post usuario persistencia (BD)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"ABC\",\n  \"email\": \"DEF@GHI\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/usuarioBD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuarioBD"
+					]
+				},
+				"description": "Esta solicitud POST crearía un nuevo usuario en el sistema.\n\n**Caso de uso:** En este caso, en el cuerpo de la solicitud se recibiría un JSON con los campos que se quiera y se guardaría un nuevo usuario"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
